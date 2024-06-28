@@ -43,7 +43,7 @@ function Dashboard() {
 
     useEffect(() => { 
         const handleKeyDownDelete = (e) => { // Keyboard Delete Button Handler.
-            if(e.key != "Delete") return;
+            if(e.key !== "Delete") return;
             // e.preventDefault();
             handleFileDelete(deleteFiles);
         };
@@ -66,7 +66,6 @@ function Dashboard() {
         setFileDeleting(true);
         try {
             const config = { headers: { 'email': email }};
-            console.log(config)
             for (const file of filesToDelete) {
                 const res = await axiosInstance.delete(`/file/delete/:${file._id}`, config);
             };
@@ -142,7 +141,7 @@ function Dashboard() {
       return;
     }
     setFileUploading(true);
-    // setResultOfUpDelDown('');
+    setResultOfUpDelDown('');
     setUploadProgress(0);
     let res = '';
     try {
